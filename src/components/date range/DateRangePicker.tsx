@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { format, subDays, isAfter, startOfDay } from "date-fns";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiCalendar, FiX, FiArrowRight } from "react-icons/fi";
+import { FiCalendar, FiX, FiArrowRight } from "../icons";
 
 interface DateRange {
   startDate: string;

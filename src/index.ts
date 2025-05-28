@@ -4,6 +4,7 @@ export * from './components/alert';
 export * from './components/avatar';
 export * from './components/badge';
 export * from './components/cards';
+export * from './components/ComponentTemplate';
 export * from './components/date range';
 export * from './components/description';
 export * from './components/dropdown';

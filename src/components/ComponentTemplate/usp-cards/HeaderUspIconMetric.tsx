@@ -1,9 +1,8 @@
 import React, { useState, memo } from 'react';
-import Badge from '../ui/badge/Badge';
-import { DropdownItem } from '../ui/dropdown/DropdownItem';
-import { Dropdown } from '../ui/dropdown/Dropdown';
-import { MoreDotIcon } from '../../icons';
-import { IoSparklesOutline } from "react-icons/io5";
+import Badge from '../../badge/Badge';
+import { DropdownItem } from '../../dropdown/DropdownItem';
+import { Dropdown } from '../../dropdown/Dropdown';
+import { MoreDotIcon, IoSparklesOutline } from '../../icons';
 
 interface HeaderUspIconMetricProps {
     /** Icon component to display */

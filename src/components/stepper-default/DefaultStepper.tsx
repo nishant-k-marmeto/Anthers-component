@@ -1,7 +1,6 @@
 import React from "react";
 import PageHeadingDesc from "./PageHeadingDesc";
-import { GiCheckMark } from "react-icons/gi";
-import { ClockFadingIcon } from "../../icons";
+import { GiCheckMark, ClockFadingIcon } from "../icons";
 
 // SVGs for tick (completed) and progress (in-progress)
 const TickSVG = () => (

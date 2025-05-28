@@ -51,6 +51,7 @@
     "tailwind.preset.js"
   ],
   "dependencies": {
+    "react-icons": "^5.5.0",
     "react-router": "^7.6.1",
     "react-router-dom": "^7.6.1",
     "tailwind-merge": "^3.3.0"
