@@ -1,48 +1,79 @@
-import React from 'react';
+import React, { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 export interface ButtonProps {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  onClick?: () => void;
-  disabled?: boolean;
-  className?: string;
+  children: ReactNode; // Button text or content
+  size?: "sm" | "md"; // Button size
+  variant?: "primary" | "outline"; // Button variant
+  startIcon?: ReactNode; // Icon before the text
+  endIcon?: ReactNode; // Icon after the text
+  onClick?: () => void; // Click handler
+  disabled?: boolean; // Disabled state
+  className?: string; // Additional classes
+  type?: string; // If needed
+  loading?: boolean; // Loading state
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  variant = 'primary',
-  size = 'md',
+  size = "md",
+  variant = "primary",
+  startIcon,
+  endIcon,
   onClick,
+  className = "",
   disabled = false,
-  className = '',
+  loading = false,
 }) => {
-  // These classes will be processed by Tailwind during build
-  // and included in the final CSS output, so they work without Tailwind too
-  const baseClasses = 'inline-flex items-center justify-center rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2';
-  
-  const variantClasses = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
-    outline: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-blue-500',
-  };
-  
+  // Size Classes
   const sizeClasses = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg',
+    sm: "px-4 py-3 text-sm",
+    md: "px-5 py-3.5 text-sm",
   };
-  
-  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
-  
+
+  // Variant Classes
+  const variantClasses = {
+    primary:
+      "bg-neutral-700 text-white shadow-theme-xs hover:bg-neutral-600 disabled:bg-neutral-300",
+    outline:
+      "bg-white text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-400 dark:ring-gray-700 dark:hover:bg-white/[0.03] dark:hover:text-gray-300",
+  };
+
+  // Spinner for loading state
+  const LoadingSpinner = () => (
+    <svg className="animate-spin h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+  );
+
+  const baseClasses = "inline-flex items-center justify-center gap-2 rounded-lg transition";
+  const disabledClasses = (disabled || loading) ? "cursor-not-allowed opacity-50" : "";
+
   return (
     <button
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabledClasses} ${className}`}
+      className={twMerge(
+        baseClasses,
+        sizeClasses[size],
+        variantClasses[variant],
+        disabledClasses,
+        className
+      )}
       onClick={onClick}
-      disabled={disabled}
-      type="button"
+      disabled={disabled || loading}
     >
-      {children}
+      {loading ? (
+        <>
+          <LoadingSpinner />
+          <span>{children}</span>
+        </>
+      ) : (
+        <>
+          {startIcon && <span className="flex items-center">{startIcon}</span>}
+          {children}
+          {endIcon && <span className="flex items-center">{endIcon}</span>}
+        </>
+      )}
     </button>
   );
 };

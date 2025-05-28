@@ -49,5 +49,8 @@
     "dist",
     "README.md",
     "tailwind.preset.js"
-  ]
+  ],
+  "dependencies": {
+    "tailwind-merge": "^3.3.0"
+  }
 }
