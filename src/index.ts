@@ -1,21 +1,21 @@
-// Export all components from this file
-export * from './components/Button';
-export * from './components/alert';
-export * from './components/avatar';
-export * from './components/badge';
-export * from './components/cards';
-export * from './components/ComponentTemplate';
-export * from './components/date range';
-export * from './components/description';
-export * from './components/dropdown';
+// Export components
+export { Button } from './components/Button';
+export { Alert } from './components/alert';
+export { Badge } from './components/badge';
+export { Avatar } from './components/avatar';
+export { ComponentCard } from './components/cards';
+export { HeadingWithDescription } from './components/description';
+export { Dropdown, DropdownItem } from './components/dropdown';
+export { FaqSection } from './components/faq-section';
+export { DateRangePicker } from './components/date range';
 export * from './components/icons';
 export * from './components/input';
-export * from './components/pagination';
-export * from './components/scroll-to-top';
-export * from './components/stepper-default';
-export * from './components/switch';
-export * from './components/table';
-export * from './components/toast';
+export { Pagination } from './components/pagination';
+export { ScrollToTop } from './components/scroll-to-top';
+export { StepperParent } from './components/stepper-default';
+export { Table, TableHeader, TableBody, TableRow, TableCell } from './components/table';
+export { Switch } from './components/switch';
+export { Toast } from './components/toast';
 
-// Export the CSS path for programmatic usage
-export const cssPath = 'anthers-components/dist/styles.css';
+// Export styles
+export { initStyles } from './styles';
