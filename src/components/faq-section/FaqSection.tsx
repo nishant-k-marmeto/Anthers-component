@@ -33,14 +33,13 @@ export interface FaqSectionProps {
 const FaqSection: React.FC<FaqSectionProps> = ({
   faqs,
   title = "Frequently asked questions",
-  className = "",
-  titleClassName = "text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white",
-  listClassName = "mt-16 divide-y divide-gray-900/10 dark:divide-gray-700/10",
-  itemClassName = "py-6 first:pt-0 last:pb-0",
-  questionClassName = "text-base/7 font-semibold text-gray-900 dark:text-white",
-  answerClassName = "mt-2 pr-12 text-base/7 text-gray-600 dark:text-gray-300",
-  bgColor = "bg-white dark:bg-gray-900",
+  titleClassName = "text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl",
+  listClassName = "mt-16 divide-y divide-gray-900/10",
   maxWidth = "max-w-4xl",
+  questionClassName = "text-base/7 font-semibold text-gray-900",
+  answerClassName = "mt-2 pr-12 text-base/7 text-gray-600",
+  bgColor = "bg-white",
+  className = "",
 }) => {
   // Don't render if no FAQs are provided
   if (!faqs || faqs.length === 0) return null;

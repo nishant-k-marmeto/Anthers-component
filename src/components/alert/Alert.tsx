@@ -21,26 +21,14 @@ const Alert: React.FC<AlertProps> = ({
 }) => {
   // Tailwind classes for each variant
   const variantClasses = {
-    success: {
-      container:
-        "border-success-500 bg-success-50 dark:border-success-500/30 dark:bg-success-500/15",
-      icon: "text-success-500",
-    },
-    error: {
-      container:
-        "border-error-500 bg-error-50 dark:border-error-500/30 dark:bg-error-500/15",
-      icon: "text-error-500",
-    },
-    warning: {
-      container:
-        "border-warning-500 bg-warning-50 dark:border-warning-500/30 dark:bg-warning-500/15",
-      icon: "text-warning-500",
-    },
-    info: {
-      container:
-        "border-blue-light-500 bg-blue-light-50 dark:border-blue-light-500/30 dark:bg-blue-light-500/15",
-      icon: "text-blue-light-500",
-    },
+    success:
+      "border-success-500 bg-success-50",
+    error:
+      "border-error-500 bg-error-50",
+    warning:
+      "border-warning-500 bg-warning-50",
+    info:
+      "border-blue-light-500 bg-blue-light-50",
   };
 
   // Icon for each variant
@@ -115,25 +103,23 @@ const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`rounded-xl border p-4 ${variantClasses[variant].container}`}
+      className={`rounded-xl border p-4 ${variantClasses[variant]}`}
     >
       <div className="flex items-start gap-3">
-        <div className={`-mt-0.5 ${variantClasses[variant].icon}`}>
+        <div className={`-mt-0.5`}>
           {icons[variant]}
         </div>
 
         <div>
-          <h4 className="mb-1 text-sm font-semibold text-gray-800 dark:text-white/90">
-            {title}
-          </h4>
+          <h4 className="mb-1 text-sm font-semibold text-gray-800">{title}</h4>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400">{message}</p>
+          <p className="text-sm text-gray-500">{message}</p>
 
           {showLink && (
             <button
               type="button"
               onClick={onLinkClick || (() => console.log('Link clicked:', linkHref))}
-              className="inline-block mt-3 text-sm font-medium text-gray-500 underline dark:text-gray-400 bg-transparent border-none cursor-pointer"
+              className="inline-block mt-3 text-sm font-medium text-gray-500 underline bg-transparent border-none cursor-pointer"
             >
               {linkText}
             </button>

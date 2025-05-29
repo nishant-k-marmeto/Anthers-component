@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface SwitchProps {
   /** Text label displayed next to the switch */
@@ -31,42 +32,39 @@ const Switch: React.FC<SwitchProps> = ({
     }
   };
 
-  const switchColors =
-    color === "blue"
-      ? {
-          background: isChecked
-            ? "bg-brand-500 "
-            : "bg-gray-200 dark:bg-white/10", // Blue version
-          knob: isChecked
-            ? "translate-x-full bg-white"
-            : "translate-x-0 bg-white",
-        }
-      : {
-          background: isChecked
-            ? "bg-gray-800 dark:bg-white/10"
-            : "bg-gray-200 dark:bg-white/10", // Gray version
-          knob: isChecked
-            ? "translate-x-full bg-white"
-            : "translate-x-0 bg-white",
-        };
+  const trackClasses = twMerge(
+    "relative inline-flex h-6 w-11 items-center rounded-full transition-colors",
+    isChecked
+      ? "bg-blue-600"
+      : "bg-gray-200", // Blue version
+    disabled && (isChecked
+      ? "bg-gray-800"
+      : "bg-gray-200"), // Gray version
+    className
+  );
+
+  const labelClasses = twMerge(
+    "ml-3 text-sm",
+    disabled ? "text-gray-400" : "text-gray-700"
+  );
+
+  const thumbClasses = twMerge(
+    "inline-block h-4 w-4 transform rounded-full bg-white transition",
+    isChecked ? "translate-x-6" : "translate-x-1",
+    disabled && "bg-gray-100 pointer-events-none"
+  );
 
   return (
     <label
-      className={`flex cursor-pointer select-none items-center gap-3 text-sm font-medium ${
-        disabled ? "text-gray-400" : "text-gray-700 dark:text-gray-400"
-      }`}
+      className={`flex cursor-pointer select-none items-center gap-3 text-sm font-medium ${labelClasses}`}
       onClick={handleToggle} // Toggle when the label itself is clicked
     >
       <div className="relative">
         <div
-          className={`block transition duration-150 ease-linear h-6 w-11 rounded-full ${
-            disabled
-              ? "bg-gray-100 pointer-events-none dark:bg-gray-800"
-              : switchColors.background
-          }`}
+          className={trackClasses}
         ></div>
         <div
-          className={`absolute left-0.5 top-0.5 h-5 w-5 rounded-full shadow-theme-sm duration-150 ease-linear transform ${switchColors.knob}`}
+          className={thumbClasses}
         ></div>
       </div>
       {label}

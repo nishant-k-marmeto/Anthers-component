@@ -22,23 +22,23 @@ const ComponentCard: FC<ComponentCardProps> = ({
 }) => {
   // Base classes for main container
   const containerClasses = twMerge(
-    "rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]",
+    "rounded-2xl border border-gray-200 bg-white",
     className
   );
 
   // Base classes for header title
   const titleClasses = twMerge(
-    "text-base font-medium text-gray-800 dark:text-white/90"
+    "text-base font-medium text-gray-800"
   );
 
   // Base classes for description
   const descClasses = twMerge(
-    "mt-1 text-sm text-gray-500 dark:text-gray-400"
+    "mt-1 text-sm text-gray-500"
   );
 
   // Base classes for body container
   const bodyClasses = twMerge(
-    "p-4 border-t border-gray-100 dark:border-gray-800 sm:p-6"
+    "p-4 border-t border-gray-100 sm:p-6"
   );
 
   return (

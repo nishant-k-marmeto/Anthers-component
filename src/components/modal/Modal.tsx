@@ -48,9 +48,9 @@ const Modal: React.FC<ModalProps> = ({
   );
   const contentClasses = twMerge(
     "relative w-full",
-    isFullscreen ? "w-full h-full" : "rounded-3xl bg-white dark:bg-gray-900"
+    isFullscreen ? "w-full h-full" : "rounded-3xl bg-white"
   );
-  const closeButtonClasses = "absolute right-3 top-3 z-999 flex h-9.5 w-9.5 items-center justify-center rounded-full bg-gray-100 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:right-6 sm:top-6 sm:h-11 sm:w-11";
+  const closeButtonClasses = "absolute right-3 top-3 z-999 flex h-9.5 w-9.5 items-center justify-center rounded-full bg-gray-100 text-gray-400 transition-colors hover:bg-gray-200 hover:text-gray-700 sm:right-6 sm:top-6 sm:h-11 sm:w-11";
 
   const CloseIcon = () => (
     <svg
