@@ -40,6 +40,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({
   answerClassName = "mt-2 pr-12 text-base/7 text-gray-600",
   bgColor = "bg-white",
   className = "",
+  itemClassName = "py-6 first:pt-0 last:pb-0",
 }) => {
   // Don't render if no FAQs are provided
   if (!faqs || faqs.length === 0) return null;

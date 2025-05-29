@@ -12,6 +12,8 @@ interface SwitchProps {
   onChange?: (checked: boolean) => void;
   /** Color theme of the switch ('blue' or 'gray') */
   color?: "blue" | "gray";
+  /** Additional CSS classes */
+  className?: string;
 }
 
 const Switch: React.FC<SwitchProps> = ({
@@ -20,6 +22,7 @@ const Switch: React.FC<SwitchProps> = ({
   disabled = false,
   onChange,
   color = "blue", // Default to blue color
+  className = "",
 }) => {
   const [isChecked, setIsChecked] = useState(defaultChecked);
 

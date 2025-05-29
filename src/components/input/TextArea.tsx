@@ -32,4 +32,26 @@ const TextArea: React.FC<TextareaProps> = ({
   if (disabled) {
     textareaClasses += " bg-gray-100 opacity-50 text-gray-500 border-gray-300 cursor-not-allowed opacity40";
   } else if (error) {
-    textareaClasses += `
+    textareaClasses += " border-red-500 focus:ring-red-500 focus:border-red-500";
+  }
+
+  return (
+    <div className="relative">
+      <textarea
+        placeholder={placeholder}
+        rows={rows}
+        value={value}
+        onChange={handleChange}
+        disabled={disabled}
+        className={`${textareaClasses} ${className}`}
+      />
+      {hint && (
+        <p className={`mt-2 text-sm ${error ? "text-red-500" : "text-gray-500"}`}>
+          {hint}
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default TextArea;
