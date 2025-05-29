@@ -10,6 +10,7 @@ export { FaqSection } from './components/faq-section';
 export { DateRangePicker } from './components/date range';
 export * from './components/icons';
 export * from './components/input';
+export { Modal } from './components/modal';
 export { Pagination } from './components/pagination';
 export { ScrollToTop } from './components/scroll-to-top';
 export { StepperParent } from './components/stepper-default';

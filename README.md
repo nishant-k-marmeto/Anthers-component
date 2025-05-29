@@ -87,6 +87,45 @@ function App() {
 </Button>
 ```
 
+### Modal
+
+A flexible modal component that supports fullscreen mode and customizable close button.
+
+```jsx
+import { Modal } from 'anthers-components';
+
+const MyPage = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Modal 
+      isOpen={isOpen}
+      onClose={() => setIsOpen(false)}
+      showCloseButton={true}
+      isFullscreen={false}
+      className="max-w-2xl mx-auto p-6"
+    >
+      <h2>Modal Title</h2>
+      <p>Modal content goes here...</p>
+    </Modal>
+  );
+};
+```
+
+You can customize the Modal with these props:
+
+```jsx
+<Modal
+  isOpen={boolean}          // Controls modal visibility
+  onClose={() => {}}       // Function called when modal should close
+  showCloseButton={true}   // Show/hide the close button (default: true)
+  isFullscreen={false}     // Toggle fullscreen mode (default: false)
+  className="custom-class" // Additional CSS classes
+>
+  {/* Modal content */}
+</Modal>
+```
+
 ### FaqSection
 
 A reusable FAQ section component that displays collapsible questions and answers.
