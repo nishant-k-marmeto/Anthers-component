@@ -26,9 +26,14 @@ export { default as SidebarWidget } from './components/layout/SidebarWidget';
 export { default as Backdrop } from './components/layout/Backdrop';
 
 // Export header components
+export { default as Header } from './components/header/Header';
 export { default as HeaderHomePage } from './components/header/HeaderHomePage';
 export { default as UserDropdown } from './components/header/UserDropdown';
 export { default as NotificationDropdown } from './components/header/NotificationDropdown';
+
+// Export footer components
+export { default as FooterColumn } from './components/footer/FooterColoumn';
+export { default as FooterSocialLinks } from './components/footer/FooterSocialLinks';
 
 // Export context
 export { SidebarProvider, useSidebar } from './context/SidebarContext';
