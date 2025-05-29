@@ -697,136 +697,65 @@ const CustomLayout = () => {
 
 ### Using the Sidebar Context
 
-The sidebar context provides various utilities and state management:
+The sidebar context provides state management and utilities for the sidebar component:
 
+```typescript
+// Type definitions
+interface SidebarContextType {
+  isExpanded: boolean;      // Controls expanded/collapsed state
+  isMobileOpen: boolean;    // Controls mobile menu visibility
+  isHovered: boolean;       // Tracks hover state for collapsed sidebar
+  toggleSidebar: () => void;
+  toggleMobileSidebar: () => void;
+  setIsHovered: (value: boolean) => void;
+}
+```
+
+To use the sidebar context:
+
+1. **Wrap your app with SidebarProvider**
 ```jsx
-import { useSidebar, useSidebarDimensions } from 'anthers-components';
+import { SidebarProvider } from './context/SidebarContext';
 
-const YourComponent = () => {
-  // Access sidebar state and functions
+function App() {
+  return (
+    <SidebarProvider>
+      <AppLayout>
+        {/* Your app content */}
+      </AppLayout>
+    </SidebarProvider>
+  );
+}
+```
+
+2. **Use the hook in components**
+```jsx
+import { useSidebar } from './context/SidebarContext';
+
+function YourComponent() {
   const { 
     isExpanded,
-    isMobile,
+    isMobileOpen,
+    isHovered,
     toggleSidebar,
     toggleMobileSidebar,
-    setActiveItem 
+    setIsHovered 
   } = useSidebar();
 
-  // Access sidebar dimensions
-  const { 
-    width,
-    expandedWidth,
-    collapsedWidth 
-  } = useSidebarDimensions();
-
   return (
-    <div style={{ marginLeft: width }}>
-      {/* Your content */}
+    <div className={isExpanded ? 'expanded' : 'collapsed'}>
+      {/* Your component content */}
     </div>
   );
-};
-```
-
-### Available Props
-
-#### AppLayout Props
-```typescript
-interface AppLayoutProps {
-  logo: {
-    src: string;
-    alt: string;
-  };
-  children?: ReactNode;
-  showSearch?: boolean;
-  showNotifications?: boolean;
-  showUserDropdown?: boolean;
-  customHeaderComponent?: ReactNode;
-  customSidebarContent?: ReactNode;
-  className?: string;
-  menuItems?: NavItem[];
 }
 ```
 
-#### SidebarProvider Props
-```typescript
-interface SidebarProviderProps {
-  initialState?: {
-    isExpanded?: boolean;
-    breakpoint?: number;
-    sidebarWidth?: {
-      expanded: number;
-      collapsed: number;
-    };
-  };
-  children: ReactNode;
-}
-```
-
-### Features and Capabilities
-
-1. **Responsive Layout**
-   - Automatic mobile/desktop detection
-   - Collapsible sidebar
-   - Mobile-friendly navigation
-
-2. **State Management**
-   - Persistent sidebar state
-   - Synchronized components
-   - Controlled animations
-
-3. **Customization**
-   - Custom menu items
-   - Custom header components
-   - Theme support
-   - Flexible styling
-
-4. **Navigation**
-   - Nested menu items
-   - Active state tracking
-   - Smooth transitions
-
-5. **Accessibility**
-   - Keyboard navigation
-   - ARIA attributes
-   - Screen reader support
-
-### Best Practices
-
-1. **State Management**
-   ```jsx
-   // Wrap your app with SidebarProvider at the root
-   const App = () => (
-     <SidebarProvider>
-       <AppLayout {...props} />
-     </SidebarProvider>
-   );
-   ```
-
-2. **Responsive Design**
-   ```jsx
-   // Use the useSidebarDimensions hook for responsive layouts
-   const Layout = () => {
-     const { width } = useSidebarDimensions();
-     return (
-       <main style={{ marginLeft: width }}>
-         {/* Content */}
-       </main>
-     );
-   };
-   ```
-
-3. **Custom Components**
-   ```jsx
-   // Create custom components that integrate with the sidebar context
-   const CustomNav = () => {
-     const { isExpanded } = useSidebar();
-     return (
-       <nav className={isExpanded ? 'nav-expanded' : 'nav-collapsed'}>
-         {/* Navigation items */}
-       </nav>
-     );
-   };
-   ```
+Features:
+- Automatic mobile detection and responsive behavior
+- Hover state management for collapsed sidebar
+- Window resize handling
+- Smooth transitions between states
+- TypeScript support with proper type definitions
 
 ## Development
 
