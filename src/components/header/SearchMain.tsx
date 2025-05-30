@@ -100,7 +100,7 @@ function SearchMain<T extends Record<string, unknown>>({
     
     return parts.map((part, index) => 
       regex.test(part) ? 
-        <span key={index} className="bg-yellow-200 dark:bg-yellow-700">{part}</span> : 
+        <span key={index} className="bg-yellow-200">{part}</span> : 
         <span key={index}>{part}</span>
     );
   };
@@ -126,7 +126,7 @@ function SearchMain<T extends Record<string, unknown>>({
         <div className="relative">
           <span className="absolute -translate-y-1/2 pointer-events-none left-4 top-1/2">
             <svg
-              className="fill-gray-500 dark:fill-gray-400"
+              className="fill-gray-500"
               width="20"
               height="20"
               viewBox="0 0 20 20"
@@ -149,10 +149,10 @@ function SearchMain<T extends Record<string, unknown>>({
             onKeyDown={handleKeyDown}
             onClick={() => query && setIsOpen(true)}
             placeholder={placeholder}
-            className={`dark:bg-dark-900 h-12 w-full rounded-lg border border-gray-200 bg-transparent py-2.5 pl-12 pr-14 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 dark:border-gray-800 dark:bg-gray-900 dark:bg-white/[0.03] dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800 ${className}`}
+            className={`h-12 w-full rounded-lg border border-gray-200 bg-white py-2.5 pl-12 pr-14 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-none focus:ring focus:ring-brand-500/10 ${className}`}
           />
 
-          <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400">
+          <button className="absolute right-2.5 top-1/2 inline-flex -translate-y-1/2 items-center gap-0.5 rounded-lg border border-gray-200 bg-gray-50 px-[7px] py-[4.5px] text-xs -tracking-[0.2px] text-gray-500">
             <span> ⌘ </span>
             <span> K </span>
           </button>
@@ -162,22 +162,22 @@ function SearchMain<T extends Record<string, unknown>>({
       {isOpen && suggestions.length > 0 && (
         <div 
           ref={dropdownRef}
-          className="absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg max-h-60 overflow-auto dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+          className="absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg max-h-60 overflow-auto border border-gray-200"
         >
           <ul className="py-1">
             {suggestions.map((suggestion, index) => (
               <li 
                 key={index} 
-                className={`px-4 py-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                  index === activeIndex ? 'bg-gray-100 dark:bg-gray-700' : ''
+                className={`px-4 py-3 cursor-pointer hover:bg-gray-100 ${
+                  index === activeIndex ? 'bg-gray-100' : ''
                 }`}
                 onClick={() => handleSelectSuggestion(suggestion)}
                 onMouseEnter={() => setActiveIndex(index)}
               >
-                <div className="font-semibold text-gray-900 dark:text-white/90">
+                <div className="font-semibold text-gray-900">
                   {typeof suggestion.name === 'string' ? highlightMatch(suggestion.name, query) : ''}
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                <div className="text-sm text-gray-500 mt-0.5">
                   {typeof suggestion.description === 'string' ? highlightMatch(suggestion.description, query) : ''}
                 </div>
               </li>
