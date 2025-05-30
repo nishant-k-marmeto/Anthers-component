@@ -35,9 +35,9 @@ const FooterColumn: React.FC<FooterColumnProps> = ({
   // Calculate the container layout based on whether there's a logo
   const containerLayout = logo ? 'xl:grid xl:grid-cols-3 xl:gap-8' : '';
 
-  return (
+    return (
     <footer className={`bg-white ${className}`}>
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
         <div className={containerLayout}>
           {logo && (
             <img
@@ -70,11 +70,11 @@ const FooterColumn: React.FC<FooterColumnProps> = ({
                   </ul>
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
   );
 };
 

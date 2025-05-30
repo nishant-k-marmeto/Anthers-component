@@ -14,10 +14,10 @@ const HeadingWithDescription: React.FC<HeadingWithDescription> = ({
       <div>
         <p className="text-[12px] font-light leading-[18px] text-gray-800 mb-2">{title}</p>
         <ul className="list-disc text-[12px] font-light leading-[20px] list-outside pl-5 text-gray-600">
-          {points.map((point, index) => (
-            <li key={index}>{point}</li>
-          ))}
-        </ul>
+        {points.map((point, index) => (
+          <li key={index}>{point}</li>
+        ))}
+      </ul>
       </div>
     </div>
   );
