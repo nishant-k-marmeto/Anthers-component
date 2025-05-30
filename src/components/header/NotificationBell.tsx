@@ -32,7 +32,7 @@ const NotificationBell: React.FC<NotificationBellProps> = ({ notifications = [] 
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        className="relative p-2 text-gray-600 hover:text-gray-900"
       >
         <svg
           className="w-6 h-6"
@@ -55,32 +55,32 @@ const NotificationBell: React.FC<NotificationBellProps> = ({ notifications = [] 
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-50">
-          <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Notifications</h3>
+        <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+          <div className="p-4 border-b border-gray-200">
+            <h3 className="text-lg font-semibold text-gray-900">Notifications</h3>
           </div>
           <div className="max-h-96 overflow-y-auto">
             {notifications.length > 0 ? (
               notifications.map((notification) => (
                 <div
                   key={notification.id}
-                  className={`p-4 border-b border-gray-200 dark:border-gray-700 ${
-                    !notification.read ? 'bg-blue-50 dark:bg-blue-900/20' : ''
+                  className={`p-4 border-b border-gray-200 ${
+                    !notification.read ? 'bg-blue-50' : ''
                   }`}
                 >
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
+                  <h4 className="text-sm font-semibold text-gray-900">
                     {notification.title}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                  <p className="text-sm text-gray-600 mt-1">
                     {notification.message}
                   </p>
-                  <span className="text-xs text-gray-500 dark:text-gray-500 mt-2 block">
+                  <span className="text-xs text-gray-500 mt-2 block">
                     {notification.time}
                   </span>
                 </div>
               ))
             ) : (
-              <div className="p-4 text-center text-gray-500 dark:text-gray-400">
+              <div className="p-4 text-center text-gray-500">
                 No notifications
               </div>
             )}

@@ -88,11 +88,11 @@ const Sidebar: React.FC<SidebarProps> = ({ logo, menuItems, className = '' }) =>
   return (
     <aside className={`w-64 h-screen bg-white border-r border-gray-200 flex flex-col ${className}`}>
       {/* Logo */}
-      <div className="h-16 flex items-center justify-center border-b border-gray-200">
+      <div className="flex items-center justify-center border-gray-200">
         <img 
           src={logo.src} 
           alt={logo.alt} 
-          className="h-8"
+          className="h-fit"
         />
       </div>
 
