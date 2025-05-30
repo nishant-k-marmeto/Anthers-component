@@ -219,6 +219,30 @@ const YourComponent = () => {
 };
 ```
 
+#### Toast Component
+
+A simple toast notification system:
+
+```tsx
+import { Toast, show as showToast } from 'anthers-components';
+
+// Using the Toast component directly
+const YourComponent = () => {
+  return (
+    <Toast>Custom Toast Content</Toast>
+  );
+};
+
+// Using the show method for temporary notifications
+const AnotherComponent = () => {
+  return (
+    <button onClick={() => showToast('Operation successful!')}>
+      Show Toast
+    </button>
+  );
+};
+```
+
 ### Component Types
 
 #### AppLayout Props
@@ -263,6 +287,17 @@ interface SearchMainProps<T> {
   onSearch?: (results: T[]) => void;
   searchKeys?: (keyof T & string)[];
 }
+```
+
+#### Toast Props
+```typescript
+interface ToastProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+// The show function
+function show(message: string): void;
 ```
 
 ### Features
