@@ -16,7 +16,8 @@ export { ScrollToTop } from './components/scroll-to-top';
 export { StepperParent } from './components/stepper-default';
 export { Table, TableHeader, TableBody, TableRow, TableCell } from './components/table';
 export { Switch } from './components/switch';
-export { Toast } from './components/toast';
+export { Toast, show as showToast } from './components/toast';
+export { ConsolidatedComponent } from './components/demo-consolidated';
 
 // Export layout components
 export * from './components/layout';
