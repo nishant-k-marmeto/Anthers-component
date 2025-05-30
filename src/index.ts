@@ -19,17 +19,10 @@ export { Switch } from './components/switch';
 export { Toast } from './components/toast';
 
 // Export layout components
-export { default as AppLayout } from './components/layout/AppLayout';
-export { default as AppHeader } from './components/layout/AppHeader';
-export { default as AppSidebar } from './components/layout/AppSidebar';
-export { default as SidebarWidget } from './components/layout/SidebarWidget';
-export { default as Backdrop } from './components/layout/Backdrop';
-
-// Export header components
-export { default as Header } from './components/header/Header';
-export { default as HeaderHomePage } from './components/header/HeaderHomePage';
-export { default as UserDropdown } from './components/header/UserDropdown';
-export { default as NotificationDropdown } from './components/header/NotificationDropdown';
+export * from './components/layout';
+export * from './components/header';
+export * from './components/sidebar';
+export * from './components/search';
 
 // Export footer components
 export { default as FooterColumn } from './components/footer/FooterColoumn';
