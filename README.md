@@ -63,12 +63,12 @@ The components will work without Tailwind because all necessary styles are inclu
 
 The layout system consists of several components that work together to create a consistent application layout:
 
-#### Layout Component
+#### AppLayout Component
 
 The main layout component that combines Sidebar, Header, and content area:
 
 ```tsx
-import { Layout } from 'anthers-components';
+import { AppLayout } from 'anthers-components';
 
 const App = () => {
   const menuItems = [
@@ -94,7 +94,7 @@ const App = () => {
   ];
 
   return (
-    <Layout
+    <AppLayout
       menuItems={menuItems}
       user={{
         name: "John Doe",
@@ -114,7 +114,7 @@ const App = () => {
       onSearch={(results) => console.log('Search results:', results)}
     >
       <YourPageContent />
-    </Layout>
+    </AppLayout>
   );
 };
 ```
@@ -221,9 +221,9 @@ const YourComponent = () => {
 
 ### Component Types
 
-#### Layout Props
+#### AppLayout Props
 ```typescript
-interface LayoutProps {
+interface AppLayoutProps {
   children: React.ReactNode;
   searchData?: any[];
   onSearch?: (results: any[]) => void;
@@ -273,7 +273,6 @@ interface SearchMainProps<T> {
 - Search functionality with keyboard navigation
 - Notification system
 - User profile dropdown
-- Dark mode support
 - Customizable through props and CSS classes
 
 #### Search Features
@@ -283,7 +282,6 @@ interface SearchMainProps<T> {
 - Customizable search keys
 - Type-safe with TypeScript generics
 - Responsive dropdown
-- Dark mode support
 
 ## Development
 

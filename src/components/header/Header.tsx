@@ -29,7 +29,7 @@ const Header = ({
   className = ''
 }: HeaderProps) => {
   return (
-    <header className={`flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 ${className}`}>
+    <header className={`flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200 ${className}`}>
       <div className="flex-1 max-w-2xl">
         <SearchMain
           data={searchData}
