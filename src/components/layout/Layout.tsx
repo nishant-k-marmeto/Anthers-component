@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import Sidebar from '../sidebar/Sidebar';
 import { MenuItem } from '../sidebar/Sidebar';
 
-interface LayoutProps {
+interface AppLayoutProps {
   children: React.ReactNode;
   searchData?: any[];
   onSearch?: (results: any[]) => void;
@@ -22,7 +22,7 @@ interface LayoutProps {
   menuItems?: MenuItem[];
 }
 
-const Layout: React.FC<LayoutProps> = ({
+const AppLayout: React.FC<AppLayoutProps> = ({
   children,
   searchData = [],
   onSearch,
@@ -56,4 +56,4 @@ const Layout: React.FC<LayoutProps> = ({
   );
 };
 
-export default Layout; 
+export default AppLayout; 
