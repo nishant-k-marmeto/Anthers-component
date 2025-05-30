@@ -1,6 +1,6 @@
 {
   "name": "anthers-components",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Reusable frontend components with Tailwind and TypeScript",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
